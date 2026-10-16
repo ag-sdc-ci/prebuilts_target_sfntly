@@ -31,16 +31,17 @@ cc_prebuilt_library_static {
         "//apex_available:platform",
     ],
     min_sdk_version: "29",
-    srcs: ["lib64/libsfntly.a"],
     target: {
-        android: {
-            shared_libs: ["libandroidicu"],
-        },
         host: {
+            srcs: ["host/lib64/libsfntly.a"],
             shared_libs: [
                 "libicui18n",
                 "libicuuc",
             ],
+        },
+        android: {
+            srcs: ["target/lib64/libsfntly.a"],
+            shared_libs: ["libandroidicu"],
         },
     },
 }
