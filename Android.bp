@@ -1,0 +1,46 @@
+package {
+    default_applicable_licenses: ["external_sfntly_license"],
+}
+
+license {
+    name: "external_sfntly_license",
+    visibility: ["//visibility:public"],
+    license_kinds: [
+        "SPDX-license-identifier-Apache-2.0",
+        "SPDX-license-identifier-Zlib",
+    ],
+    license_text: [
+        "cpp/COPYING.txt",
+    ],
+}
+
+cc_prebuilt_library_static {
+    name: "libsfntly",
+    vendor_available: true,
+    product_available: true,
+    recovery_available: true,
+    host_supported: true,
+    check_elf_files: false,
+    export_include_dirs: [
+        "cpp/src",
+        "include",
+    ],
+    prefer: true,
+    apex_available: [
+        "//apex_available:anyapex",
+        "//apex_available:platform",
+    ],
+    min_sdk_version: "29",
+    srcs: ["lib64/libsfntly.a"],
+    target: {
+        android: {
+            shared_libs: ["libandroidicu"],
+        },
+        host: {
+            shared_libs: [
+                "libicui18n",
+                "libicuuc",
+            ],
+        },
+    },
+}

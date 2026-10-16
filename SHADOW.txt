@@ -1,0 +1,6 @@
+shadow prebuilt repo: sfntly (target)
+  aur package: libsfntly (PKGBUILD build, x86_64)
+  registry: arch/libsfntly v14.0.0_r67-2, Forgejo ag-ci arch repo
+  api-level: 32 (branch 32-20261016)
+  layout: libsfntly-*.pkg.tar.zst at root; extracted payload in tree; Android.bp providing libsfntly (host_supported: true)
+  date: 2026-10-16
